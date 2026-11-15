@@ -94,4 +94,19 @@
 <script>
 const target=new Date('2026-11-21T18:27:00+05:30').getTime();function update(){let d=target-Date.now();const ids=['days','hours','minutes','seconds'];if(d<=0){ids.forEach(x=>document.getElementById(x).textContent='0');return}const v=[Math.floor(d/86400000),Math.floor(d%86400000/3600000),Math.floor(d%3600000/60000),Math.floor(d%60000/1000)];ids.forEach((x,i)=>document.getElementById(x).textContent=i?String(v[i]).padStart(2,'0'):v[i])}update();setInterval(update,1000);
 const audio=document.getElementById('song'),button=document.getElementById('musicBtn'),label=document.getElementById('musicText');button.addEventListener('click',async()=>{if(audio.paused){try{await audio.play();label.textContent='Pause music'}catch(e){label.textContent='Tap to retry'}}else{audio.pause();label.textContent='Play Rote Gachey Khobor'}});
+  const target = new Date('2026-11-21T18:27:00+05:30').getTime();
+// Keep your existing countdown and music button code above.
+
+window.addEventListener('load', async () => {
+  const song = document.getElementById('song');
+
+  if (song) {
+    try {
+      await song.play();
+    } catch (error) {
+      console.log('Tap Play Music to start the song.');
+    }
+  }
+});
+</script>
 </script></body></html>
